@@ -1,8 +1,8 @@
 color currentColor = color(0); // Default color is black
 int brushSize = 10;
 int buttonSize = 50;
-color[] colors = {color(0), color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255, 255, 0)};
-String[] colorNames = {"Black", "Red", "Green", "Blue", "Yellow"};
+color[] colors = {color(0), color(255, 0, 0), color(0, 255, 0), color(0, 0, 255), color(255, 255, 0), color(255, 255, 255)};
+String[] colorNames = {"Black", "Red", "Green", "Blue", "Yellow", "White"};
 float sliderX;
 float sliderMinX = 500;
 float sliderMaxX = 750;
@@ -11,6 +11,8 @@ boolean draggingSlider = false;
 void setup() {
   size(800, 600);
   background(255);
+  fill(190);
+  rect(0, 0, 800, buttonSize + 10);
   sliderX = sliderMinX; // Set initial slider position
   drawColorButtons();
   
@@ -25,9 +27,7 @@ void draw() {
   }
   
 
-  fill(255);
-  noStroke();
-  rect(480, 15, 300, 30); // Clear previous slider area
+ // Clear previous slider area
   drawSlider();
 }
 
@@ -40,7 +40,9 @@ void drawColorButtons() {
 }
 
 void drawSlider() {
-  // Draw the slider line
+  fill(190);
+  noStroke();
+  rect(480, 15, 300, 30);
   stroke(0);
   strokeWeight(5);
   line(sliderMinX, 30, sliderMaxX, 30);
